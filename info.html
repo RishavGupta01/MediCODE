@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>MediCODE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- custom css -->
+        <link rel = "stylesheet" href = "assets/css/main.css" />
+        <link rel = "stylesheet" href = "assets/css/utilities.css" />
+        <!-- normalize.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+
+:root{
+    --clr-blue: #E63946;
+    --clr-black: #000;
+    --clr-white: #fff;
+    --clr-gray: #7d7987;
+    --clr-dark-blue: #233348;
+    --clr-dark-purple: #1f1534;
+    --font-family-mulish: 'Mulish', sans-serif;
+    --transition-default: all 300ms ease-in-out;
+}
+
+html{
+    scroll-behavior: smooth;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* some resets & configuration */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: unset;
+    transition: var(--transition-default);
+}
+
+a:focus, a:hover{
+    color: unset;
+}
+
+img, picture, video, canvas, svg{
+    max-width: 100%;
+    display: block;
+}
+input, button, textarea, select{
+    font: inherit;
+    outline: 0;
+}
+h1, h2, h3, h4, h5, h6{
+    overflow-wrap: break-word;
+}
+textarea{
+    resize: none;
+}
+img, object, embed, video{
+    max-width: 100%;
+}
+
+body{
+    font-family: var(--font-family-mulish);
+    line-height: 1.6;
+    height: 100%;
+    font-weight: 300;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.page-wrapper{
+    overflow: hidden!important;
+}
+
+/* header section  & navbar */
+.header{
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--clr-blue);
+}
+.header *{
+    color: var(--clr-white);
+}
+.navbar{
+    padding: 56px 0 80px 0;
+}
+.brand-and-toggler{
+    width: 100%;
+}
+.navbar-content{
+    height: 41px;
+}
+.navbar-brand .brand-shape{
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    background-color: var(--clr-white);
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-right: 12px;
+    color: var(--clr-blue);
+}
+
+.navbar-brand .brand-text{
+    color: var(--clr-white);
+    font-size: 24px;
+}
+.nav-item{
+    margin-left: 40px;
+}
+.nav-link{
+    font-weight: 400;
+    font-size: 18px;
+}
+.nav-link:hover{
+    opacity: 0.9;
+}
+.nav-link.nav-active{
+    position: relative;
+    color: var(--clr-white);
+    font-weight: 700;
+    opacity: 1;
+}
+.nav-link.nav-active::after{
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-white);
+}
+.navbar-show-btn{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.navbar-hide-btn{
+    display: none;
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+.navbar-hide-btn:hover{
+    opacity: 0.8;
+}
+.element-one{
+    position: absolute;
+    top: calc(56px + 41px + 63px);
+    left: 0;
+}
+.element-one img{
+    width: 60px;
+}
+
+/* banner */
+.banner-title{
+    font-size: 48px;
+    line-height: 1.166;
+}
+.banner-content{
+    display: grid;
+    column-gap: 78px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.banner-left .content-wrapper{
+    max-width: 445px;
+    margin-left: auto;
+}
+.banner-left .content-wrapper p{
+    max-width: 340px;
+}
+.banner-left .text{
+    margin-top: 25px;
+    margin-bottom: 45px;
+}
+
+/* services */
+.sc-services{
+        padding-top: 80px!important;
+        padding-bottom: 80px!important;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .services-item{
+        width: calc(50% - 37px);
+    }
+
+    .sc-services{
+        padding-top: 120px;
+        padding-bottom: 115.5px;
+    }
+    .services-shape{
+        width: 70%;
+        top: 340px;
+    }
+
+
+    </style>
+    </head>
+    <body>
+        
+        <div class="page-wrapper">
+            <!-- header -->
+            <header class = "header">
+                <nav class = "navbar">
+                    <div class="container">
+                        <div class="navbar-content d-flex justify-content-between align-items-center">
+                            <div class = "brand-and-toggler d-flex align-items-center justify-content-between">
+                                <a href = "#" class = "navbar-brand d-flex align-items-center">
+                                    <span class="brand-shape d-inline-block text-white">M</span>
+                                    <span class="brand-text fw-7">MediCODE</span>
+                                </a>
+                                <button type = "button" class = "d-none navbar-show-btn">
+                                    <i class = "fas fa-bars"></i>
+                                </button>
+                            </div>
+
+                            <div class = "navbar-box">
+                                <button type = "button" class = "navbar-hide-btn">
+                                    <i class = "fas fa-times"></i>
+                                </button>
+
+                                <ul class = "navbar-nav d-flex align-items-center">
+                                    <li class = "nav-item">
+                                        <a href = "index.html" class = "nav-link text-white text-nowrap">Home</a>
+                                    </li>
+                                    <li class = "nav-item">
+                                        <a href = "#" class = "nav-link text-white text-nowrap">Find a doctor</a>
+                                    </li>
+                                    <li class = "nav-item">
+                                        <a href = "#" class = "nav-link text-white nav-active text-nowrap">Info Desk</a>
+                                    </li>
+                                    <li class = "nav-item">
+                                        <a href = "#" class = "nav-link text-white text-nowrap">Testimonials</a>
+                                    </li>
+                                    <li class = "nav-item">
+                                        <a href = "#" class = "nav-link text-white text-nowrap">About us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="element-one">
+                    <img src = "assets\images\element-img-1.png" alt = "">
+                </div>
+                <div class="banner">
+                    <div class="container">
+                        <div class="banner-content">
+                            <div class="banner-left">
+                                <div class="content-wrapper">
+                                    <h1 class="banner-title">Virtual healthcare <br> for you</h1>
+                                    <p class="text text-white">MediCODE provides progressive, and affordable healthcare, accessible to everyone.A gradual shift from reactive illness management to proactive prevention characterizes the future of health care systems.
+                                        As life expectancy increases and chronic conditions become more prevalent, health systems must embrace strategies for better outcomes, reduced inequalities, and cost management.
+                                        MediCODE focuses on the health outcomes of a group, identifying risks, and applying appropriate interventions for prevention and care.</p>
+                                </div>
+                            </div>
+
+                            <div class = "banner-right d-flex align-items-center justify-content-end">
+                                <img src = "https://cdn-icons-png.flaticon.com/512/7714/7714668.png" width="90%" height="auto" alt = "">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- end of header -->
+
+            <section class = "sc-feedback">
+                <div class="container">
+                    <div class = "feedback-content">
+                        <div class = "feedback-element">
+                            <img src = "assets/images/element-img-3.png">
+                        </div>
+                        <div class="feedback-element-2">
+                            <img src = "assets/images/element-img-5.png">
+                        </div>
+                        <div class = "title-box text-center">
+                            <div class = "content-wrapper">
+                                <h3 class = "title-box-name text-white">Some common Diseases</h3>
+                                <div class = "title-separator mx-auto"></div>
+                            </div>
+                        </div>
+
+                        <div class = "feedback-list feedback-slider owl-carousel owl-theme">
+                            <div class = "feedback-item d-grid">
+                                <div class = "item-left d-flex align-items-center">
+                                    <div class = "item-img">
+                                        <img src = "https://img.freepik.com/free-vector/man-coughing-coronavirus-pneumonia-concept_23-2148504421.jpg?w=1060&t=st=1712056946~exp=1712057546~hmac=da2a92307288af2418f0093aa2b9490d7c97f36b92e863a461ae755afbfbe0a0" alt = "">
+                                    </div>
+                                    <div class = "item-info text-white">
+                                        <p class = "fw-7 name">Bronchitis</p>
+                                    </div>
+                                </div>
+                                <div class = "item-right">
+                                    <p class = "text text-white">Bronchitis is an inflammation of the airways leading into your lungs.
+
+                                        When your airways (trachea and bronchi) get irritated, they swell up and fill with mucus, causing you to cough. Your cough can last days to a couple of weeks. It’s the main symptom of bronchitis.
+                                        
+                                        Viruses are the most common cause of acute bronchitis. Smoke and other irritants can cause acute and chronic bronchitis.</p>
+                                </div>
+                            </div>
+
+                            <div class = "feedback-item d-grid">
+                                <div class = "item-left d-flex align-items-center">
+                                    <div class = "item-img">
+                                        <img src = "https://images.ctfassets.net/mrbo2ykgx5lt/47360/adf28641a284845124c93cb619321f91/Horizontal-Close-up-of-Mosquito-sucking-blood.-Aedes-Aegypti-Mosquito-on-human-skin.Mosquito-vector-borne-disease-is-carrier.png" alt = "">
+                                    </div>
+                                    <div class = "item-info text-white">
+                                        <p class = "fw-7 name">Dengue</p>
+                                    </div>
+                                </div>
+                                <div class = "item-right">
+                                    <p class = "text text-white">Dengue (break-bone fever) is a viral infection that spreads from mosquitoes to people. It is more common in tropical and subtropical climates.
+
+                                        Most people who get dengue won't have symptoms. But for those that do, the most common symptoms are high fever, headache, body aches, nausea and rash. Most will also get better in 1–2 weeks. Some people develop severe dengue and need care in a hospital. 
+                                        
+                                        In severe cases, dengue can be fatal.  
+                                        
+                                        You can lower your risk of dengue by avoiding mosquito bites especially during the day.
+                                        
+                                        Dengue is treated with pain medicine as there is no specific treatment currently.</p>
+                                </div>
+                            </div>
+
+                            <div class = "feedback-item d-grid">
+                                <div class = "item-left d-flex align-items-center">
+                                    <div class = "item-img">
+                                        <img src = "https://www.cdc.gov/flu/images/virus/A_Flu19_trans_full-large.jpg?_=39852" alt = "">
+                                    </div>
+                                    <div class = "item-info text-white">
+                                        <p class = "fw-7 name">Flu (influenza)</p>
+                                    </div>
+                                </div>
+                                <div class = "item-right">
+                                    <p class = "text text-white">The flu is an illness you get from the influenza virus. It causes symptoms like head and body aches, sore throat, fever and respiratory symptoms, which can be severe. Flu is most common in winter months, when many people can get sick at once (an epidemic).
+                                            
+                                            The flu is spread through the air when someone with the virus coughs or sneezes. You can also get the flu by touching a surface or object that has the virus on it and then touching your mouth, nose or eyes.
+                                            
+                                            The flu can be serious, especially for older adults, young children.
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class = "feedback-item d-grid">
+                                <div class = "item-left d-flex align-items-center">
+                                    <div class = "item-img">
+                                        <img src = "https://vitrosens.com/wp-content/uploads/2023/07/What-are-Viral-Pathogens.jpg" alt = "">
+                                    </div>
+                                    <div class = "item-info text-white">
+                                        <p class = "fw-7 name">Gastroenteritis</p>
+                                    </div>
+                                </div>
+                                <div class = "item-right">
+                                    <p class = "text text-white">Gastroenteritis, also known as stomach flu is an inflammation of the gastrointestinal tract that is usually caused by a bacterial or viral infection. E. coli is a common cause of gastroenteritis, and the condition can also be caused by rotavirus, norovirus, and other foodborne illnesses. Gastroenteritis is typically characterised by symptoms such as diarrhoea, vomiting, and abdominal pain and is particularly common in young children. In most cases, the condition resolves itself within a few days and does not require medical treatment. However, some people may experience more severe symptoms that require hospitalisation due to severe dehydration. Gastroenteritis is relatively common, affecting millions of people each year. It can occur anywhere there is contaminated food or water.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class = "sc-services">
+                <div class = "services-shape">                    
+<img src = "https://cdn-icons-png.flaticon.com/512/3213/3213101.png" width="150%" height="auto" style="opacity: 0.4;" alt = "">
+                </div>
+                <div class="container">
+                    <div class = "services-content">
+                        <div class="title-box text-center">
+                            <div class = "content-wrapper">
+                                <h3 class = "title-box-name">Disease detection, check up in the laboratory</h3>
+                                <div class = "title-separator mx-auto"></div>
+                                <p class = "text title-box-text">We provide you the best choices for you. Adjust it to your health needs and make sure you undergo treatment with our highly qualified doctors you can consult with us which type of service is suitable for your health</p>
+                            </div>
+                        </div>
+
+                        <div class = "services-list">
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://cdn-icons-png.flaticon.com/512/4349/4349064.png" width="30%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">Blood Test</h5>
+                                <p class = "text">It establishes the concentrations of different elements in the blood, including glucose, cholesterol, and red and white blood cells. These tests can aid in the diagnosis of a number of medical conditions, including diabetes, anemia, and infections.</p>
+                            </div>
+
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://cdn-icons-png.freepik.com/512/9851/9851909.png" width="30%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">Bacteria Culture Test</h5>
+                                <p class = "text">A bacteria culture test can help find harmful bacteria in or on your body that may be making you sick. To do the test, you will need to give a sample of your blood, urine, skin, or other tissue. The type of sample depends on where the infection seems to be located.</p>
+                            </div>
+
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://cdn3.iconfinder.com/data/icons/cardiovascular-1/120/ECG-512.png" width="30%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">Electrocardiogram</h5>
+                                <p class = "text">An electrocardiogram (EKG) test is a simple, painless, and quick test that records your heart's electrical activity. Each time your heart beats, an electrical signal travels through your heart. The signal triggers your heart's four chambers to contract (squeeze) in the proper rhythm so that your heart can pump blood to your body.</p>
+                            </div>
+
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://media.istockphoto.com/id/1301470642/vector/cold-and-flu-virus-oral-medical-test-icon-100-solid-black-fill.jpg?s=612x612&w=0&k=20&c=gpi-Qe59R5zu_e-IObLejexPhwxCXPmv1EnubXXB-2o=" width="24%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">Flu (Influenza) Test</h5>
+                                <p class = "text">. A flu test helps your health care provider find out if you have the flu. If do you have the flu, your provider may prescribe medicine to help fight the virus, if needed. The medicine is called antiviral medicine.</p>
+                            </div>
+
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://cdn-icons-png.flaticon.com/512/3431/3431939.png" width="30%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">Hemoglobin Test</h5>
+                                <p class = "text">A hemoglobin test measures the levels of hemoglobin in your blood. Hemoglobin is a protein in your red blood cells that carries oxygen from your lungs to the rest of your body. If your hemoglobin levels are abnormal, it may be a sign that you have a blood disorder.</p>
+                            </div>
+
+                            <div class = "services-item">
+                                <div class = "item-icon">
+                                    <img src = "https://cdn-icons-png.freepik.com/512/5001/5001338.png"  width="30%" height="auto" alt = "service icon">
+                                </div>
+                                <h5 class = "item-title fw-7">HIV Screening Test</h5>
+                                <p class = "text">An HIV test checks a sample of your blood to see whether you are infected with HIV (human immunodeficiency virus). HIV is a virus that destroys certain cells in your immune system. These cells protect your body against diseases from germs, such as bacteria and viruses, and fungi.</p>
+                            </div>
+                        </div>
+
+                     <div class = "d-flex align-items-center justify-content-center services-main-btn">
+                            <a href="https://mft.nhs.uk/the-trust/other-departments/laboratory-medicine/a-z-list-of-laboratory-tests/" ><button type = "button" class = "btn btn-primary-outline">Learn more</button></div></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- owl carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- custom js -->
+    <script src = "assets/js/script.js"></script>
+</body>
+</html>
